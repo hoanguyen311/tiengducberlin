@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   siteMetadata: {
-    title: `Chào mừng đến với Tiếng Đức Berlin`,
+    title: ``,
     description: `Nơi nâng tầm ngoại ngữ của bạn`,
     author: `@gatsbyjs`,
   },
