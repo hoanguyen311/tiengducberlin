@@ -1,5 +1,6 @@
 import React from "react"
 import styled from 'styled-components';
+import SEO from "../components/SEO"
 
 const Container = styled.div`
   position: fixed;
@@ -37,6 +38,7 @@ const FacebookLink = styled.a`
 
 const UnderConstruction = () => (
   <Container>
+    <SEO title="Under Construction" keywords={["tiengducberlin", "underconstruction"]} />
     <Content>
       <FacebookLink href="https://www.facebook.com/yourchoiceistrue/" title="Facebook">
         <Logo src="img/logo.jpg" />
