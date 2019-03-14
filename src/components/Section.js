@@ -6,7 +6,7 @@ import media from '@utils/media-query';
 function selectBackground({ background }) {
   switch (background) {
     case 'texture':
-      return 'url(img/core-img/texture.png)';
+      return 'url(/img/core-img/texture.png)';
     default:
       return '#FFF';
   }

@@ -130,32 +130,32 @@ Testimonials.defaultProps = {
   viewport: 'small',
   items: [{
     name: 'Hoa',
-    avatar: 'img/bg-img/t2.png',
+    avatar: '/img/bg-img/t2.png',
     title: 'Học viên lớp A1',
     content: 'Tôi già rồi nhưng vẫn thích học ở đây'
   }, {
     name: 'Hoa',
-    avatar: 'img/bg-img/t1.png',
+    avatar: '/img/bg-img/t1.png',
     title: 'Học viên lớp A1',
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum laoreet elit, sit amet tincidunt mauris ultrices vitae.'
   }, {
     name: 'Hoa',
-    avatar: 'img/bg-img/t3.png',
+    avatar: '/img/bg-img/t3.png',
     title: 'Học viên lớp A1',
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum laoreet elit, sit amet tincidunt mauris ultrices vitae.'
   }, {
     name: 'Hoa',
-    avatar: 'img/bg-img/t4.png',
+    avatar: '/img/bg-img/t4.png',
     title: 'Học viên lớp A1',
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum laoreet elit, sit amet tincidunt mauris ultrices vitae.'
   }, {
     name: 'Hoa',
-    avatar: 'img/bg-img/t2.png',
+    avatar: '/img/bg-img/t2.png',
     title: 'Học viên lớp A1',
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum laoreet elit, sit amet tincidunt mauris ultrices vitae.'
   }, {
     name: 'Hoa',
-    avatar: 'img/bg-img/t2.png',
+    avatar: '/img/bg-img/t2.png',
     title: 'Học viên lớp A1',
     content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum laoreet elit, sit amet tincidunt mauris ultrices vitae.'
   }]

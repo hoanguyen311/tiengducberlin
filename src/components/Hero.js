@@ -45,7 +45,7 @@ const ActionButton = styled(Button)`
 
 export default function() {
   return (
-    <Container backgroundImage="img/bg-img/bg1.jpg">
+    <Container backgroundImage="/img/bg-img/bg1.jpg">
       <Content animation="zoomIn">
         <Text>
           Khai giảng các lớp tiếng Đức <br /> trình độ A1, A2, B1

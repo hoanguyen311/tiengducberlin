@@ -196,7 +196,7 @@ geocoder_map.geocode({
         map.setCenter(results[0].geometry.location);
         var marker = new google.maps.Marker({
             map: map,
-            icon: 'img/core-img/pin.png',
+            icon: '/img/core-img/pin.png',
             position: map.getCenter()
         });
     } else {

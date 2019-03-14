@@ -47,7 +47,7 @@ export default class extends Component {
   static defaultProps = {
     isSticky: false,
     siteTitle: ``,
-    siteLogo: 'img/logo.jpg',
+    siteLogo: '/img/logo.jpg',
   };
 
   render() {

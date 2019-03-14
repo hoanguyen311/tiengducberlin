@@ -5,15 +5,15 @@ import { Animated } from "react-animated-css";
 import { Grid, Box } from 'grommet';
 
 const itemIcons = {
-  successStories: 'img/core-img/tiledau.png',
-  default: 'img/core-img/docs.png',
-  star: 'img/core-img/star.png',
-  events: 'img/core-img/events.png',
-  courses: 'img/core-img/earth.png',
-  limitedStudents: 'img/core-img/sisogioihan.png',
-  trialClass: 'img/core-img/hocthu.png',
-  extraClass: 'img/core-img/hocphudao.png',
-  goodTeachers: 'img/core-img/giangvien.png',
+  successStories: '/img/core-img/tiledau.png',
+  default: '/img/core-img/docs.png',
+  star: '/img/core-img/star.png',
+  events: '/img/core-img/events.png',
+  courses: '/img/core-img/earth.png',
+  limitedStudents: '/img/core-img/sisogioihan.png',
+  trialClass: '/img/core-img/hocthu.png',
+  extraClass: '/img/core-img/hocphudao.png',
+  goodTeachers: '/img/core-img/giangvien.png',
 };
 const ItemInlineDescription = styled.p`
   margin-bottom: 0;
@@ -32,7 +32,7 @@ const ItemDescription = styled(ItemInlineDescription)`
   transition-duration: .2s;
   opacity: 0;
   visibility: hidden;
-  background: url(img/core-img/texture.png) top left rgba(214, 223, 251, 0.7);
+  background: url(/img/core-img/texture.png) top left rgba(214, 223, 251, 0.7);
   padding: 20px 50px;
   border: 1px solid #000;
   border-radius: 6px;
