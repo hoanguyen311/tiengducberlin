@@ -38,7 +38,7 @@ const FacebookLink = styled.a`
 
 const UnderConstruction = () => (
   <Container>
-    <SEO title="Tiếng Đức Berlin" keywords={["tiengducberlin", "underconstruction"]} />
+    <SEO title="Website đang được xây dựng" keywords={["tiengducberlin", "underconstruction"]} />
     <Content>
       <FacebookLink href="https://www.facebook.com/yourchoiceistrue/" title="Facebook">
         <Logo src="img/logo.jpg" />

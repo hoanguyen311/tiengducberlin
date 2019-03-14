@@ -2,9 +2,9 @@ const path = require('path');
 
 module.exports = {
   siteMetadata: {
-    title: ``,
-    description: `Nơi nâng tầm ngoại ngữ của bạn`,
-    author: `@gatsbyjs`,
+    title: 'Tiêng Đức Berlin',
+    author: `@thaihoa311`,
+    description: ''
   },
   plugins: [
     'gatsby-plugin-sass',
@@ -13,6 +13,7 @@ module.exports = {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
         alias: {
+          '@root': path.resolve(__dirname),
           '@components': path.resolve(__dirname, 'src/components'),
           '@pages': path.resolve(__dirname, 'src/pages'),
           '@static': path.resolve(__dirname, 'src/static'),
