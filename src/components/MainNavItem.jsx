@@ -5,6 +5,7 @@ import { FormDown } from 'grommet-icons';
 import styled, { css } from 'styled-components';
 import classNames from 'classnames';
 import mediaQuery from '$utils/media-query';
+import shortid from 'shortid';
 
 const ExpandIcon = styled(FormDown)`
   transition-duration: 0.2s;
@@ -91,7 +92,7 @@ function MainNavItem({ to, label, children }) {
 
   if (!children) {
     return (
-      <MenuItem key={to}>
+      <MenuItem key={shortid.generate()}>
         <MenuItemLink to={to} as={children ? 'div' : null}>
           {label}
         </MenuItemLink>
@@ -119,7 +120,7 @@ function MainNavItem({ to, label, children }) {
       {showChildren && (
         <Menu isSubMenu className="menu_type_sub">
           {children.map(item => (
-            <MainNavItem key={item.to} {...item} />
+            <MainNavItem key={shortid.generate()} {...item} />
           ))}
         </Menu>
       )}

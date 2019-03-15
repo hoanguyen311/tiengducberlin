@@ -16,7 +16,7 @@ const Content = styled.main`
 `;
 
 const Layout = ({ children }) => (
-  <Grommet theme={theme}>
+  <div>
     <Helmet>
       <link
         rel="stylesheet"
@@ -42,22 +42,24 @@ const Layout = ({ children }) => (
       `}
       render={data => {
         return (
-          <StickyContainer>
-            <ContactNav />
-            <Sticky topOffset={40}>
-              {({ isSticky }) => (
-                <div>
-                  <Header isSticky={isSticky} siteTitle={data.site.siteMetadata.title} />
-                </div>
-              )}
-            </Sticky>
-            <Content>{children}</Content>
-            <Footer />
-          </StickyContainer>
+          <Grommet theme={theme}>
+            <StickyContainer>
+              <ContactNav />
+              <Sticky topOffset={40}>
+                {({ isSticky }) => (
+                  <div>
+                    <Header isSticky={isSticky} siteTitle={data.site.siteMetadata.title} />
+                  </div>
+                )}
+              </Sticky>
+              <Content>{children}</Content>
+              <Footer />
+            </StickyContainer>
+          </Grommet>
         );
       }}
     />
-  </Grommet>
+  </div>
 );
 
 Layout.propTypes = {

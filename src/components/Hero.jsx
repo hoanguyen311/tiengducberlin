@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Button, Box } from 'grommet';
+import { Box } from 'grommet';
+import PropTypes from 'prop-types';
 
 const Container = styled.div`
   width: 100%;
@@ -9,7 +10,7 @@ const Container = styled.div`
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: top center;
   background-image: ${props => `url(${props.backgroundImage})`};
   display: flex;
   align-items: center;
@@ -33,26 +34,22 @@ const Content = styled(Box)`
   display: inline-block;
   padding: 0 10%;
 `;
-const Text = styled.h2`
-  font-size: 40px;
-  margin-bottom: 30px;
-  font-weight: 700;
-  color: #ffffff;
-  line-height: 50px;
-`;
-const ActionButton = styled(Button)``;
 
-export default function() {
+function Hero({ image, children }) {
   return (
-    <Container backgroundImage="/img/bg-img/bg1.jpg">
-      <Content animation="zoomIn">
-        <Text>
-          Khai giảng các lớp tiếng Đức
-          <br />
-          trình độ A1, A2, B1
-        </Text>
-        <ActionButton primary size="large" label="Đăng Ký Ngay" />
-      </Content>
+    <Container backgroundImage={image}>
+      <Content animation="zoomIn"> {children} </Content>
     </Container>
   );
 }
+
+Hero.defaultProps = {
+  image: '/img/bg-img/bg1.jpg',
+  children: null,
+};
+Hero.propTypes = {
+  image: PropTypes.string,
+  children: PropTypes.node,
+};
+
+export default Hero;

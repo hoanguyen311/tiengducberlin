@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import shortid from 'shortid';
 import { Menu as MenuIcon, Close as CloseIcon } from 'grommet-icons';
 import styled, { css } from 'styled-components';
 import mediaQuery from '$utils/media-query';
@@ -62,7 +63,7 @@ function MainNav({ menu = {} }) {
         {items && (
           <Menu>
             {items.map(item => (
-              <MainNavItem key={item.to} {...item} />
+              <MainNavItem key={shortid.generate()} {...item} />
             ))}
           </Menu>
         )}
@@ -95,29 +96,25 @@ MainNav.defaultProps = {
         children: [
           {
             label: 'A1',
-            to: '/course/a1',
+            to: '/course',
           },
           {
             label: 'A2',
-            to: '/course/a2',
+            to: '/course',
           },
           {
             label: 'B1',
-            to: '/course/b1',
+            to: '/course',
           },
           {
             label: 'Tiếng Đức du lịch',
-            to: '/course/dulich',
+            to: '/course',
           },
           {
             label: 'Tiếng Đức thiếu nhi',
-            to: '/course/kids',
+            to: '/course',
           },
         ],
-      },
-      {
-        label: 'Du học nghề',
-        to: '/duhocnghe',
       },
       {
         label: 'Liên hệ',

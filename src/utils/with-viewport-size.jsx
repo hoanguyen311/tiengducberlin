@@ -5,11 +5,11 @@ export default function(WrappedComponent) {
   function WrapperComponent(props) {
     return (
       <ResponsiveContext.Consumer>
-        {(size) => <WrappedComponent viewportSize={size} viewport={size} {...props} />}
+        {size => <WrappedComponent viewportSize={size} viewport={size} {...props} />}
       </ResponsiveContext.Consumer>
     );
-  };
-  const displayName = WrappedComponent.name || WrappedComponent.displayName
+  }
+  const displayName = WrappedComponent.name || WrappedComponent.displayName;
   WrapperComponent.displayName = `withViewportSize(${displayName})`;
   return WrapperComponent;
-}
+};

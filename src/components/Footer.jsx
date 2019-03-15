@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import packageJson from '$root/package.json';
 import { Content as SectionContent } from './Section';
 import ContactNav from './ContactNav';
@@ -20,7 +21,9 @@ const FooterLogo = styled.div`
   text-transform: uppercase;
   margin-bottom: 5px;
 `;
-const CopyWrite = styled.div``;
+const CopyWrite = styled.div`
+  background: none;
+`;
 const CopyWriteItem = styled.p`
   color: rgba(255, 255, 255, 0.2);
   font-size: 12px;
@@ -31,7 +34,7 @@ const BottomContent = styled.div`
   border-top: 1px solid #4c4c4c;
 `;
 
-const Footer = () => {
+const Footer = ({ address }) => {
   const year = new Date().getFullYear();
   const copyRight = `Copyright © ${year} All rights reserved`;
   return (
@@ -39,6 +42,7 @@ const Footer = () => {
       <Content>
         <FooterLogo>TIẾNG ĐỨC BERLIN</FooterLogo>
         <CopyWrite>
+          {address && <CopyWriteItem>{address}</CopyWriteItem>}
           <CopyWriteItem>{copyRight}</CopyWriteItem>
           <CopyWriteItem>
             This website is made with
@@ -55,6 +59,13 @@ const Footer = () => {
       </BottomContent>
     </Container>
   );
+};
+
+Footer.defaultProps = {
+  address: '31 Hoà Bình, Phương Khuê Trung, Quận Cẩm Lệ, TP. Đà Nẵng',
+};
+Footer.propTypes = {
+  address: PropTypes.string,
 };
 
 export default Footer;

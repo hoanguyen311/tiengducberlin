@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import shortid from 'shortid';
-import withViewportSize from '$utils/with-viewport-size';
-import { Animated } from 'react-animated-css';
 import { Grid, Box } from 'grommet';
+import styled from 'styled-components';
+import { Animated } from 'react-animated-css';
+import withViewportSize from '$utils/with-viewport-size';
 
 const itemIcons = {
   successStories: '/img/core-img/tiledau.png',
@@ -123,16 +122,17 @@ function renderItem(item, i, viewport) {
 
 function Reasons({ viewportSize }) {
   let columnsCount;
-  const columnsSize = 'small';
+  let columnsSize = 'small';
 
   switch (viewportSize) {
     case 'medium':
       columnsCount = 3;
       break;
     case 'large':
-      columnsCount = 3;
+      columnsCount = 4;
       break;
     default:
+      columnsSize = '1fr';
       columnsCount = 1;
   }
   const columns = {

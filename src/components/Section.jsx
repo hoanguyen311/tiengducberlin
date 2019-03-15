@@ -47,7 +47,8 @@ const Heading = styled.h3`
   z-index: 2;
   margin-bottom: 70px;
   text-align: center;
-  font-size: 30px;
+  font-size: 35px;
+  font-weight: bold;
   color: rgba(0, 0, 0, 0.8);
 `;
 
