@@ -1,6 +1,6 @@
-import React from "react"
+import React from 'react';
 import styled from 'styled-components';
-import SEO from "../components/SEO"
+import SEO from '../components/SEO';
 
 const Container = styled.div`
   position: fixed;
@@ -21,8 +21,7 @@ const Logo = styled.img`
   width: 150px;
   height: 150px;
 `;
-const Notice = styled.main`
-`;
+const Notice = styled.main``;
 const NoticeIcon = styled.i``;
 const NoticeText = styled.span`
   font-size: 16px;
@@ -38,7 +37,7 @@ const FacebookLink = styled.a`
 
 const UnderConstruction = () => (
   <Container>
-    <SEO title="Website đang được xây dựng" keywords={["tiengducberlin", "underconstruction"]} />
+    <SEO title="Website đang được xây dựng" keywords={['tiengducberlin', 'underconstruction']} />
     <Content>
       <FacebookLink href="https://www.facebook.com/yourchoiceistrue/" title="Facebook">
         <Logo src="img/logo.jpg" />
@@ -46,8 +45,10 @@ const UnderConstruction = () => (
       <Notice>
         <NoticeIcon />
         <NoticeText>
-          Website đang được xây dựng. <br /> Vui lòng xem thông tin qua
-          <FacebookLink href="https://www.facebook.com/yourchoiceistrue/" title="Facebook"> 
+          Website đang được xây dựng.
+          <br />
+          Vui lòng xem thông tin qua
+          <FacebookLink href="https://www.facebook.com/yourchoiceistrue/" title="Facebook">
             Facebook
           </FacebookLink>
         </NoticeText>
@@ -56,4 +57,4 @@ const UnderConstruction = () => (
   </Container>
 );
 
-export default UnderConstruction
+export default UnderConstruction;

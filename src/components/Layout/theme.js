@@ -1,5 +1,4 @@
 import { base } from 'grommet/themes';
-console.log(base);
 
 export default {
   ...base,

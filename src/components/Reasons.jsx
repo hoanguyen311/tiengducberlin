@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import withViewportSize from '@utils/with-viewport-size';
-import { Animated } from "react-animated-css";
+import shortid from 'shortid';
+import withViewportSize from '$utils/with-viewport-size';
+import { Animated } from 'react-animated-css';
 import { Grid, Box } from 'grommet';
 
 const itemIcons = {
@@ -29,7 +31,7 @@ const ItemDescription = styled(ItemInlineDescription)`
   height: 100%;
   display: flex;
   align-items: center;
-  transition-duration: .2s;
+  transition-duration: 0.2s;
   opacity: 0;
   visibility: hidden;
   background: url(/img/core-img/texture.png) top left rgba(214, 223, 251, 0.7);
@@ -45,9 +47,8 @@ const Item = styled(Box)`
   border: 1px solid #ebebeb;
   border-radius: 6px;
   text-align: center;
-  height: auto;
   justify-content: center;
-  transition-duration: .2;
+  transition-duration: 0.2;
   height: 300px;
   &:hover {
     border-color: #d2d2d2;
@@ -73,50 +74,60 @@ const ItemTitle = styled.h4`
   text-transform: uppercase;
 `;
 
-const Container = styled(Grid)``;
+const Container = styled(Grid)`
+  background: none;
+`;
 
-const data = [{
-  icon: "goodTeachers",
-  title: 'Đội ngũ giảng viên chất lượng',
-  description: 'Đội ngũ giảng viên người Việt và người Đức giàu kinh nghiệm, luôn hiệu quả và tận tâm mang đến những buổi học hiệu quả và thú vị.'
-}, {
-  icon: "limitedStudents",
-  title: 'Sĩ số lớp học giới hạn',
-  description: 'Sĩ số lớp học được giới hạn tối đa 12 học viên, giáo viên có nhiều thời gian hơn để giúp đỡ và tương tác với học viên.'
-}, {
-  icon: "extraClass",
-  title: 'Học phụ đạo miễn phí'
-}, {
-  icon: "successStories",
-  title: 'Cam kết 100% đầu ra cho học viên'
-}, {
-  icon: "trialClass",
-  title: 'Được học thử miễn phí'
-}];
+const data = [
+  {
+    icon: 'goodTeachers',
+    title: 'Đội ngũ giảng viên chất lượng',
+    description:
+      'Đội ngũ giảng viên người Việt và người Đức giàu kinh nghiệm, luôn hiệu quả và tận tâm mang đến những buổi học hiệu quả và thú vị.',
+  },
+  {
+    icon: 'limitedStudents',
+    title: 'Sĩ số lớp học giới hạn',
+    description:
+      'Sĩ số lớp học được giới hạn tối đa 12 học viên, giáo viên có nhiều thời gian hơn để giúp đỡ và tương tác với học viên.',
+  },
+  {
+    icon: 'extraClass',
+    title: 'Học phụ đạo miễn phí',
+  },
+  {
+    icon: 'successStories',
+    title: 'Cam kết 100% đầu ra cho học viên',
+  },
+  {
+    icon: 'trialClass',
+    title: 'Được học thử miễn phí',
+  },
+];
 
 function renderItem(item, i, viewport) {
   const { icon, title, description } = item;
-  const delay = i * 200;
+  const delay = (i + 1) * 100;
   const isSmall = viewport === 'small';
   return (
-    <Animated key={i} animationIn={["slideUpIn"]} animationInDelay={delay} isVisible>
+    <Animated key={i} animationIn="slideInUp" animationInDelay={delay} isVisible>
       <Item justifyContent="center">
         <ItemIcon name={icon} />
         <ItemTitle>{title}</ItemTitle>
-        {(description && !isSmall) && <ItemDescription>{description}</ItemDescription>}
-        {(description && isSmall) && <ItemInlineDescription>{description}</ItemInlineDescription>}
+        {description && !isSmall && <ItemDescription>{description}</ItemDescription>}
+        {description && isSmall && <ItemInlineDescription>{description}</ItemInlineDescription>}
       </Item>
     </Animated>
   );
 }
 
-function WhyChooseUs({ viewportSize }) {
+function Reasons({ viewportSize }) {
   let columnsCount;
-  let columnsSize = 'small';
+  const columnsSize = 'small';
+
   switch (viewportSize) {
     case 'medium':
-      columnsSize = 'medium';
-      columnsCount = 'fill';
+      columnsCount = 3;
       break;
     case 'large':
       columnsCount = 3;
@@ -126,7 +137,7 @@ function WhyChooseUs({ viewportSize }) {
   }
   const columns = {
     count: columnsCount,
-    size: columnsSize
+    size: columnsSize,
   };
 
   return (
@@ -145,4 +156,8 @@ function WhyChooseUs({ viewportSize }) {
   );
 }
 
-export default withViewportSize(WhyChooseUs);
+Reasons.propTypes = {
+  viewportSize: PropTypes.string.isRequired,
+};
+
+export default withViewportSize(Reasons);

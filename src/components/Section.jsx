@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import media from '@utils/media-query';
+import media from '$utils/media-query';
 
 function selectBackground({ background }) {
   switch (background) {
@@ -34,7 +34,6 @@ export const Content = styled.div`
   padding-right: 15px;
   margin-left: auto;
   margin-right: auto;
-  overflow: hidden;
 
   ${media.medium(css`
     max-width: 720px;
@@ -65,9 +64,13 @@ export default function Section({ children, background, overlay, title }) {
 Section.defaultProps = {
   background: 'plain',
   children: null,
+  overlay: false,
+  title: null,
 };
 
 Section.propTypes = {
+  overlay: PropTypes.bool,
+  title: PropTypes.string,
   background: PropTypes.oneOf(['plain', 'texture', 'purple']),
   children: PropTypes.node,
 };

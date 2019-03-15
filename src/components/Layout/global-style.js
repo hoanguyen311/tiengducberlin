@@ -1,5 +1,5 @@
 import { createGlobalStyle, css } from 'styled-components';
-import media from '@utils/media-query';
+import media from '$utils/media-query';
 
 export default createGlobalStyle`
 * {

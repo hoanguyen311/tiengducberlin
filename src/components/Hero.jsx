@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from "styled-components";
+import styled from 'styled-components';
 import { Button, Box } from 'grommet';
 
 const Container = styled.div`
@@ -10,7 +10,7 @@ const Container = styled.div`
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center center;
-  background-image: ${(props) => `url(${props.backgroundImage})`};
+  background-image: ${props => `url(${props.backgroundImage})`};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,7 +21,7 @@ const Container = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    content: "";
+    content: '';
     background-color: rgba(0, 0, 0, 0.2);
   }
 `;
@@ -40,18 +40,19 @@ const Text = styled.h2`
   color: #ffffff;
   line-height: 50px;
 `;
-const ActionButton = styled(Button)`
-`;
+const ActionButton = styled(Button)``;
 
 export default function() {
   return (
     <Container backgroundImage="/img/bg-img/bg1.jpg">
       <Content animation="zoomIn">
         <Text>
-          Khai giảng các lớp tiếng Đức <br /> trình độ A1, A2, B1
+          Khai giảng các lớp tiếng Đức
+          <br />
+          trình độ A1, A2, B1
         </Text>
-        <ActionButton primary size="large" label="Đăng Ký Ngay"/>
+        <ActionButton primary size="large" label="Đăng Ký Ngay" />
       </Content>
     </Container>
-  )
-};
+  );
+}

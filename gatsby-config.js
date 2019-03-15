@@ -1,26 +1,17 @@
-const path = require('path');
+const alias = require('./alias');
 
 module.exports = {
   siteMetadata: {
     title: 'Tiêng Đức Berlin',
     author: `@thaihoa311`,
-    description: ''
+    description: '',
   },
   plugins: [
     'gatsby-plugin-sass',
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-alias-imports`,
-      options: {
-        alias: {
-          '@root': path.resolve(__dirname),
-          '@components': path.resolve(__dirname, 'src/components'),
-          '@pages': path.resolve(__dirname, 'src/pages'),
-          '@static': path.resolve(__dirname, 'src/static'),
-          '@utils': path.resolve(__dirname, 'src/utils'),
-        },
-        extensions: []
-      }
+      options: alias,
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -32,12 +23,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-less`,
       options: {
-        javascriptEnabled: true
-      }
+        javascriptEnabled: true,
+      },
     },
-    "gatsby-plugin-styled-components",
+    'gatsby-plugin-styled-components',
     {
-      resolve: "gatsby-plugin-antd",
+      resolve: 'gatsby-plugin-antd',
       options: {
         style: true,
       },
@@ -57,13 +48,13 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-typography",
+      resolve: 'gatsby-plugin-typography',
       options: {
-        pathToConfigModule: "src/utils/typography",
+        pathToConfigModule: 'src/utils/typography',
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
   ],
-}
+};

@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import packageJson from '$root/package.json';
 import { Content as SectionContent } from './Section';
 import ContactNav from './ContactNav';
-import packageJson from '@root/package.json';
 
 const Container = styled.footer`
   background-color: #252525;
@@ -14,7 +14,7 @@ const Content = styled(SectionContent)`
   text-align: center;
 `;
 const FooterLogo = styled.div`
-  color: #FFF;
+  color: #fff;
   font-size: 20px;
   font-weight: bold;
   text-transform: uppercase;
@@ -33,27 +33,28 @@ const BottomContent = styled.div`
 
 const Footer = () => {
   const year = new Date().getFullYear();
+  const copyRight = `Copyright © ${year} All rights reserved`;
   return (
     <Container>
       <Content>
-        <FooterLogo>
-            TIẾNG ĐỨC BERLIN
-        </FooterLogo>
+        <FooterLogo>TIẾNG ĐỨC BERLIN</FooterLogo>
         <CopyWrite>
+          <CopyWriteItem>{copyRight}</CopyWriteItem>
           <CopyWriteItem>
-            Copyright © {year} All rights reserved
-          </CopyWriteItem>
-          <CopyWriteItem>
-            This website is made with ❤️ by {packageJson.author}
+            This website is made with
+            <span role="img" aria-label="heart">
+              ❤ ️
+            </span>
+            by
+            {packageJson.author}
           </CopyWriteItem>
         </CopyWrite>
       </Content>
       <BottomContent>
         <ContactNav theme="dark" />
-
       </BottomContent>
     </Container>
-  );  
-}
+  );
+};
 
 export default Footer;
