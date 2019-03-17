@@ -12516,6 +12516,13 @@ typography-theme-de-young@^0.16.18:
     gray-percentage "^2.0.0"
     typography-breakpoint-constants "^0.16.19"
 
+typography-theme-github@^0.16.19:
+  version "0.16.19"
+  resolved "https://registry.yarnpkg.com/typography-theme-github/-/typography-theme-github-0.16.19.tgz#91842d3e0a92ad952adf6350ede0924d574193e8"
+  integrity sha512-kDfFjbeh2JW3buPub1JUA39AIKQrZhMuEeqJo6P+9c9JOEMLUBPvcHGrNd+wtAuZlVehPbqG6bcW6KAANHrsGw==
+  dependencies:
+    gray-percentage "^2.0.0"
+
 typography-theme-stow-lake@^0.16.18:
   version "0.16.19"
   resolved "https://registry.yarnpkg.com/typography-theme-stow-lake/-/typography-theme-stow-lake-0.16.19.tgz#423b2d7bae6abaaf5fb607de046d57f9d0a356e9"

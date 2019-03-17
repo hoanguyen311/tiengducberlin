@@ -35,7 +35,6 @@ const ItemDescription = styled(ItemInlineDescription)`
   visibility: hidden;
   background: url(/img/core-img/texture.png) top left rgba(214, 223, 251, 0.7);
   padding: 20px 50px;
-  border: 1px solid #000;
   border-radius: 6px;
 `;
 const Item = styled(Box)`
@@ -59,18 +58,19 @@ const Item = styled(Box)`
   }
 `;
 const ItemIcon = styled.div`
-  width: 75px;
-  height: 75px;
+  width: 150px;
+  height: 150px;
   background: url(${({ name }) => itemIcons[name] || itemIcons.default}) center no-repeat;
   margin: 0 auto 15px;
+  border-radius: 100%;
+  border: 3px solid rgba(0, 0, 0, 0.1);
 `;
 const ItemTitle = styled.h4`
-  font-size: 20px;
+  font-size: 1.5rem;
   margin-bottom: 9px;
-  color: #3762f0;
-  line-height: 25px;
-  font-weight: bold;
-  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.8);
+  line-height: 2rem;
+  font-weight: 700;
 `;
 
 const Container = styled(Grid)`

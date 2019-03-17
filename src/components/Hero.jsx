@@ -1,20 +1,26 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Box } from 'grommet';
 import PropTypes from 'prop-types';
+import media from '../utils/media-query';
 
 const Container = styled.div`
   width: 100%;
   min-height: 400px;
   position: relative;
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: scroll;
   background-repeat: no-repeat;
-  background-position: top center;
+  background-position: center center;
   background-image: ${props => `url(${props.backgroundImage})`};
   display: flex;
   align-items: center;
   justify-content: center;
+
+  ${media.medium(css`
+    background-attachment: fixed;
+  `)}
+
   &::before {
     position: absolute;
     z-index: 2;

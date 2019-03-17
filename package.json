@@ -42,6 +42,7 @@
     "typography": "^0.16.18",
     "typography-theme-bootstrap": "^0.16.18",
     "typography-theme-de-young": "^0.16.18",
+    "typography-theme-github": "^0.16.19",
     "typography-theme-stow-lake": "^0.16.18"
   },
   "devDependencies": {
