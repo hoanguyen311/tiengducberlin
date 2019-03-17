@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import addScript from '$utils/add-script';
 
 const CustomerChat = styled.div`
-  position: fixed;
+  /* position: fixed; */
   z-index: 10;
   bottom: 40px;
   right: 30px;
@@ -53,8 +53,9 @@ class FBPlugins extends Component {
             attribution="setup_tool"
             page_id={pageId}
             theme_color="#3762f0"
-            logged_in_greeting="Hi! Chúng tôi có thể giúp gì cho bạn?"
-            logged_out_greeting="Hi! Chúng tôi có thể giúp gì cho bạn?" />
+            logged_in_greeting="Hi! Bạn cần tư vấn về khoá học?"
+            logged_out_greeting="Hi! Bạn cần tư vấn về khoá học?"
+          />
         </CustomerChat>
       </>
     );
