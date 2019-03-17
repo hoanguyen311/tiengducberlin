@@ -27,7 +27,7 @@ const HomePage = () => (
         <br />
         trình độ A1, A2, B1
       </Text>
-      <ActionButton primary size="large" label="Đăng Ký Ngay" />
+      <ActionButton primary size="large" label="Liên hệ để đăng ký ngay" />
     </Hero>
     <Section title="Vì sao nên chọn Tiếng Đức Berlin">
       <Reasons />

@@ -16,7 +16,7 @@ const CustomerChat = styled.div`
 class FBPlugins extends Component {
   static defaultProps = {
     appId: '588288398358257',
-    pageId: '314931461945007',
+    pageId: '164913087299485',
   };
 
   static propTypes = {
@@ -53,8 +53,8 @@ class FBPlugins extends Component {
             attribution="setup_tool"
             page_id={pageId}
             theme_color="#3762f0"
-            logged_in_greeting="Hi! Bạn cần tư vấn về khoá học?"
-            logged_out_greeting="Hi! Bạn cần tư vấn về khoá học?"
+            logged_in_greeting="Hi! Bạn cần tư vấn gì về khoá học?"
+            logged_out_greeting="Hi! Bạn cần tư vấn gì về khoá học?"
           />
         </CustomerChat>
       </>
