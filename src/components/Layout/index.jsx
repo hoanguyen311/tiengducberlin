@@ -8,6 +8,7 @@ import { StickyContainer, Sticky } from 'react-sticky';
 import Header from '$components/Header';
 import Footer from '$components/Footer';
 import ContactNav from '$components/ContactNav';
+import FBPlugins from '$components/FBPlugins';
 import theme from './theme';
 import GlobalStyle from './global-style';
 
@@ -54,6 +55,7 @@ const Layout = ({ children }) => (
               </Sticky>
               <Content>{children}</Content>
               <Footer />
+              <FBPlugins />
             </StickyContainer>
           </Grommet>
         );

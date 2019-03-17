@@ -26,6 +26,7 @@ const CourseTitle = styled.h3`
   color: rgba(0, 0, 0, 0.8);
   font-size: 40px;
   margin-bottom: 20px;
+  margin-top: 0px;
   font-weight: 700;
   line-height: 50px;
 `;
