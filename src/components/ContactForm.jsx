@@ -116,21 +116,8 @@ class ContactForm extends Component {
     });
   };
 
-  validate() {
-    let flag = true;
-    ['message', 'email', 'name'].forEach(fieldName => {
-      const value = this.getFieldValue(fieldName);
-      if (!value || value === '') {
-        flag = false;
-        this.setError(fieldName, 'Bạn không được để trống ô này');
-      }
-    });
-    return flag;
-  }
-
   handleSend = () => {
     const isValid = this.validate();
-    
 
     if (isValid) {
       this.setState({
@@ -142,6 +129,18 @@ class ContactForm extends Component {
       });
     }
   };
+
+  validate() {
+    let flag = true;
+    ['message', 'email', 'name'].forEach(fieldName => {
+      const value = this.getFieldValue(fieldName);
+      if (!value || value === '') {
+        flag = false;
+        this.setError(fieldName, 'Bạn không được để trống ô này');
+      }
+    });
+    return flag;
+  }
 
   renderInput(type = Input, fieldName, placeholder) {
     const { loading } = this.state;
@@ -190,7 +189,7 @@ ContactForm.propTypes = {
 };
 
 ContactForm.defaultProps = {
-  className: ''
+  className: '',
 };
 
 export default ContactForm;
