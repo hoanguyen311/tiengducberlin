@@ -8,9 +8,11 @@ import styled, { css } from 'styled-components';
 import media from '../utils/media-query';
 
 const Content = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding-top: 50px;
+  ${media.medium(css`
+    display: flex;
+    justify-content: space-between;
+    padding-top: 50px;
+  `)}
 `;
 
 const Info = styled(ContactInfo)`

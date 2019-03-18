@@ -59,6 +59,7 @@ export const Menu = styled.nav`
 
     &.menu_type_sub {
         z-index: 4;
+        margin-bottom: 0;
         ${mediaQuery.large(css`
           opacity: 0;
           display: block;
