@@ -129,7 +129,7 @@ function Reasons({ viewportSize }) {
       columnsCount = 3;
       break;
     case 'large':
-      columnsCount = 4;
+      columnsCount = 3;
       break;
     default:
       columnsSize = '1fr';
