@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
 import { Menu as MenuIcon, Close as CloseIcon } from 'grommet-icons';
-import styled, { css } from 'styled-components';
-import mediaQuery from '$utils/media-query';
+import styled from 'styled-components';
+import { tablet } from '../utils/refactor/media-query';
 import MainNavItem, { Menu } from './MainNavItem';
 
 const Container = styled.div`
@@ -28,13 +28,13 @@ const MainNavContent = styled.div`
   align-items: center;
   flex-direction: column;
 
-  ${mediaQuery.medium(css`
+  @media screen and ${tablet} {
     overflow: visible;
     position: static;
     width: auto;
     box-shadow: none;
     flex-direction: row;
-  `)}
+  }
 `;
 
 const NavCloseIcon = styled(CloseIcon)`
@@ -43,9 +43,10 @@ const NavCloseIcon = styled(CloseIcon)`
   z-index: 12;
   position: absolute;
   stroke: #000;
-  ${mediaQuery.medium(css`
+
+  @media screen and ${tablet} {
     display: none;
-  `)}
+  }
 `;
 
 function MainNav({ menu = {} }) {
@@ -57,7 +58,7 @@ function MainNav({ menu = {} }) {
 
   return (
     <Container>
-      <MenuIcon className="hide-large" onClick={handleToggleVisible} size="large" color="#858585" />
+      <MenuIcon className="d-lg-none" onClick={handleToggleVisible} size="large" color="#858585" />
       <MainNavContent visible={visible}>
         <NavCloseIcon onClick={handleToggleVisible} size="medium" color="#858585" />
         {items && (

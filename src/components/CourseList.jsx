@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Image, Grid, Box } from 'grommet';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+import { Container, Row, Col } from 'reactstrap';
 import shortid from 'shortid';
-import withViewport from '$utils/with-viewport-size';
 
-const Container = styled.div``;
+// const Container = styled.div``;
 const Item = styled(Link)`
   position: relative;
   z-index: 1;
@@ -17,6 +16,9 @@ const Item = styled(Link)`
   text-decoration: none;
   display: block;
   overflow: hidden;
+  &:hover {
+    text-decoration: none;
+  }
 `;
 const ItemContent = styled.main`
   padding: 25px;
@@ -28,7 +30,7 @@ const ItemTitle = styled.h4`
   font-weight: 700;
   margin-bottom: 5px;
 `;
-const ItemBanner = styled(Image)`
+const ItemBanner = styled.img`
   display: block;
   width: 100%;
   border-radius: 6px 6px 0 0;
@@ -96,35 +98,15 @@ const CourseItem = ({
   );
 };
 
-const CourseList = ({ items, viewport }) => {
+const CourseList = ({ items }) => {
   const renderItem = item => (
-    <Box key={item.id}>
+    <Col key={item.id} md={4} lg={4}>
       <CourseItem {...item} />
-    </Box>
+    </Col>
   );
-  let columnsCount;
-  let columnsSize = 'small';
-
-  switch (viewport) {
-    case 'medium':
-      columnsCount = 2;
-      break;
-    case 'large':
-      columnsCount = 3;
-      break;
-    default:
-      columnsSize = '1fr';
-      columnsCount = 1;
-  }
-  const columns = {
-    count: columnsCount,
-    size: columnsSize,
-  };
   return (
     <Container>
-      <Grid gap={{ row: 'small', column: 'medium' }} columns={columns}>
-        {items.map(renderItem)}
-      </Grid>
+      <Row> {items.map(renderItem)} </Row>
     </Container>
   );
 };
@@ -208,8 +190,7 @@ CourseItem.propTypes = {
 };
 
 CourseList.propTypes = {
-  viewport: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(PropTypes.shape(CourseItem.propTypes)),
 };
 
-export default withViewport(CourseList);
+export default CourseList;

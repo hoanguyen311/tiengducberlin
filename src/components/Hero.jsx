@@ -1,8 +1,7 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
-import { Box } from 'grommet';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import media from '../utils/media-query';
+import { tablet } from '../utils/refactor/media-query';
 
 const Container = styled.div`
   width: 100%;
@@ -17,9 +16,9 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
 
-  ${media.medium(css`
+  @media screen and ${tablet} {
     background-attachment: fixed;
-  `)}
+  }
 
   &::before {
     position: absolute;
@@ -33,7 +32,7 @@ const Container = styled.div`
   }
 `;
 
-const Content = styled(Box)`
+const Content = styled.div`
   text-align: center;
   position: relative;
   z-index: 3;

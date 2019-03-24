@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
-import media from '$utils/media-query';
+import styled from 'styled-components';
+import { Container as BootstrapContainer } from 'reactstrap';
 
 function selectBackground({ background }) {
   switch (background) {
@@ -27,20 +27,9 @@ const Container = styled.section`
     z-index: 1;
   }
 `;
-export const Content = styled.div`
+export const Content = styled(BootstrapContainer)`
   position: relative;
   z-index: 2;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-left: auto;
-  margin-right: auto;
-
-  ${media.medium(css`
-    max-width: 720px;
-  `)}
-  ${media.large(css`
-    max-width: 960px;
-  `)}
 `;
 const Heading = styled.h3`
   position: relative;

@@ -1,11 +1,10 @@
 /* eslint-disable react/no-unused-state */
 import React, { Component, createElement } from 'react';
 import PropTypes from 'prop-types';
-import { TextInput, TextArea, Button } from 'grommet';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import classNames from 'classnames';
-import media from '$utils/media-query';
-
+import { Input, FormGroup, Form, Col, Button, FormFeedback } from 'reactstrap';
+const emailReg = /^(?:[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+\.)*[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+@(?:(?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!\.)){0,61}[a-zA-Z0-9]?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!$)){0,61}[a-zA-Z0-9]?)|(?:\[(?:(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\.){3}(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\]))$/;
 const Container = styled.div`
   position: relative;
   z-index: 1;
@@ -22,43 +21,8 @@ const Heading = styled.h3`
   margin-top: 0;
   font-size: 24px;
 `;
-const FormRow = styled.div`
-  margin-bottom: 20px;
-  &:last-child {
-    margin-bottom: 0;
-  }
-  ${media.medium(css`
-    display: flex;
-    justify-content: space-between;
-  `)}
-`;
-const FormCol = styled.div`
-  margin-bottom: 20px;
-  ${media.medium(css`
-    width: 48%;
-    margin-bottom: 0;
-  `)}
-`;
 const InputWrap = styled.div`
   flex: 1;
-`;
-const Input = styled(TextInput)`
-  &.error {
-    border-color: red;
-  }
-`;
-const MessageInput = styled(TextArea)`
-  &.error {
-    border-color: red;
-  }
-`;
-const SendButton = styled(Button)`
-  flex: 1;
-`;
-const Error = styled.span`
-  font-size: 14px;
-  line-height: 16px;
-  color: red;
 `;
 
 class ContactForm extends Component {
@@ -116,14 +80,23 @@ class ContactForm extends Component {
     });
   };
 
-  handleSend = () => {
+  handleSend = e => {
+    e.preventDefault();
     const isValid = this.validate();
 
     if (isValid) {
+      const data = {
+        name: this.getFieldValue('name'),
+        email: this.getFieldValue('email'),
+        message: this.getFieldValue('message'),
+      };
+
+      console.log(data);
+
       this.setState({
         loading: true,
       });
-      alert('send to server');
+
       this.setState({
         loading: false,
       });
@@ -137,30 +110,31 @@ class ContactForm extends Component {
       if (!value || value === '') {
         flag = false;
         this.setError(fieldName, 'Bạn không được để trống ô này');
+      } else if (fieldName === 'email' && !emailReg.test(value)) {
+        this.setError(fieldName, 'Hãy nhập email đúng định dạng');
       }
     });
     return flag;
   }
 
-  renderInput(type = Input, fieldName, placeholder) {
+  renderInput(type = 'text', fieldName, placeholder) {
     const { loading } = this.state;
     const onChange = this.handleChange(fieldName);
     const value = this.getFieldValue(fieldName);
     const error = this.getFieldError(fieldName);
-    const element = createElement(type, {
+    const element = createElement(Input, {
+      type,
       disabled: loading,
       onChange,
       placeholder,
       value,
-      className: classNames({
-        error: error !== '',
-      }),
+      invalid: error !== '',
     });
 
     return (
       <InputWrap>
         {element}
-        {error && <Error>{error}</Error>}
+        {error && <FormFeedback>{error}</FormFeedback>}
       </InputWrap>
     );
   }
@@ -171,14 +145,22 @@ class ContactForm extends Component {
     return (
       <Container className={className}>
         <Heading>Liên lạc</Heading>
-        <FormRow>
-          <FormCol>{this.renderInput(Input, 'name', 'Họ và tên *')}</FormCol>
-          <FormCol>{this.renderInput(Input, 'email', 'Email *')}</FormCol>
-        </FormRow>
-        <FormRow>{this.renderInput(MessageInput, 'message', 'Nội dung tin nhắn *')}</FormRow>
-        <FormRow>
-          <SendButton onClick={this.handleSend} label="Gửi tin nhắn" primary />
-        </FormRow>
+        <Form onSubmit={this.handleSend}>
+          <FormGroup row>
+            <Col>{this.renderInput('text', 'name', 'Họ và tên *')}</Col>
+            <Col>{this.renderInput('text', 'email', 'Email *')}</Col>
+          </FormGroup>
+          <FormGroup row>
+            <Col>{this.renderInput('textarea', 'message', 'Nội dung tin nhắn *')}</Col>
+          </FormGroup>
+          <FormGroup row>
+            <Col>
+              <Button color="primary">
+                Gửi tin nhắn
+              </Button>
+            </Col>
+          </FormGroup>
+        </Form>
       </Container>
     );
   }

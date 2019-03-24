@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import Slider from 'react-slick';
-import { Image, Box } from 'grommet';
-import { FormNext, FormPrevious } from 'grommet-icons';
 import shortId from 'shortid';
-import withViewportSize from '$utils/with-viewport-size';
-import media from '$utils/media-query';
+import { Container } from 'reactstrap';
+import { FormNext, FormPrevious } from 'grommet-icons';
+import { BreakpointsContext } from './BreakpointsProvider';
+import { isSMDown, tablet } from '$utils/refactor/media-query';
+import { MD } from '../utils/refactor/media-query';
 
-const Container = styled(Box)`
-  background: none;
-`;
+// const Container = styled(Row)`
+//   background: none;
+// `;
 const Item = styled.div`
   text-align: center;
 `;
@@ -61,7 +62,7 @@ const ItemContent = styled.div`
     visibility: visible;
   }
 
-  ${media.medium(css`
+  @media screen and ${tablet} {
     .slick-active & {
       top: 10px;
       visibility: hidden;
@@ -72,9 +73,9 @@ const ItemContent = styled.div`
       opacity: 1;
       visibility: visible;
     }
-  `)}
+  }
 `;
-const ItemAvatar = styled(Image)`
+const ItemAvatar = styled.img`
   width: 165px;
   height: 165px;
   background-color: #000;
@@ -100,19 +101,30 @@ const PrevIcon = styled(FormPrevious)`
 const SlideArrow = ({ currentSlide, slideCount, ...props }) =>
   React.createElement(Arrow, props, null);
 
-const TestimonialsItem = ({ name, title, content, avatar }) => (
-  <Item>
-    <ItemAvatar src={avatar} alt={name} />
-    <ItemContent>
-      <ItemName>{name}</ItemName>
-      <ItemTitle>{title}</ItemTitle>
-      <ItemQuote>{content}</ItemQuote>
-    </ItemContent>
-  </Item>
-);
+function Testimonials({ items }) {
+  const { current } = useContext(BreakpointsContext);
+  let slidesToShow = 3;
 
-function Testimonials({ items, viewport }) {
-  const slidesToShow = viewport === 'small' ? 1 : 3;
+  switch (true) {
+    case isSMDown(current):
+      slidesToShow = 1;
+      break;
+    case current.name === MD:
+      slidesToShow = 2;
+      break;
+    default:
+  }
+
+  const renderItem = item => (
+    <Item key={shortId.generate()}>
+      <ItemAvatar src={item.avatar} alt={item.name} />
+      <ItemContent>
+        <ItemName>{item.name}</ItemName>
+        <ItemTitle>{item.title}</ItemTitle>
+        <ItemQuote>{item.content}</ItemQuote>
+      </ItemContent>
+    </Item>
+  );
   if (!items || !items.length) {
     return <div>EMPTY</div>;
   }
@@ -125,16 +137,13 @@ function Testimonials({ items, viewport }) {
         nextArrow={<SlideArrow as={NextIcon} />}
         prevArrow={<SlideArrow as={PrevIcon} />}
       >
-        {items.map(item => (
-          <TestimonialsItem {...item} key={shortId.generate()} />
-        ))}
+        {items.map(renderItem)}
       </Slider>
     </Container>
   );
 }
 
 Testimonials.defaultProps = {
-  viewport: 'small',
   items: [
     {
       name: 'Hoa',
@@ -181,7 +190,6 @@ Testimonials.defaultProps = {
 };
 
 Testimonials.propTypes = {
-  viewport: PropTypes.string,
   items: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
@@ -192,4 +200,4 @@ Testimonials.propTypes = {
   ),
 };
 
-export default withViewportSize(Testimonials);
+export default Testimonials;

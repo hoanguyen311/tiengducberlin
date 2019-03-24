@@ -1,15 +1,16 @@
 /* eslint-disable import/no-webpack-loader-syntax */
 
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { Row, Container } from 'reactstrap';
 import SEO from '$components/SEO';
 import Hero from '$components/Hero';
 import Layout from '$components/Layout';
 import Section from '$components/Section';
-import mediaQuery from '$utils/media-query';
 import mockContent from 'raw-loader!$root/mock/course-content.html';
 import mockInfo from 'raw-loader!$root/mock/course-info.html';
+import { tablet } from '../utils/refactor/media-query';
 
 const CourseIntro = styled.main`
   height: auto;
@@ -18,9 +19,9 @@ const CourseIntro = styled.main`
   border-radius: 6px;
   width: 100%;
 
-  ${mediaQuery.medium(css`
+  @media screen and ${tablet} {
     width: auto;
-  `)}
+  }
 `;
 const CourseTitle = styled.h3`
   color: rgba(0, 0, 0, 0.8);
@@ -36,7 +37,7 @@ const CourseDescription = styled.span`
   color: rgba(0, 0, 0, 0.8);
   letter-spacing: 0.75px;
 `;
-const Content = styled.main``;
+const Content = styled(Row)``;
 
 const Course = ({ name, description, banner, info, content }) => (
   <Layout>
@@ -48,10 +49,14 @@ const Course = ({ name, description, banner, info, content }) => (
       </CourseIntro>
     </Hero>
     <Section title="Thông tin khoá học">
-      <Content dangerouslySetInnerHTML={{ __html: info }} />
+      <Container>
+        <Content isCol dangerouslySetInnerHTML={{ __html: info }} />
+      </Container>
     </Section>
     <Section title="Nội dung khoá học" background="texture">
-      <Content dangerouslySetInnerHTML={{ __html: content }} />
+      <Container>
+        <Content isCol dangerouslySetInnerHTML={{ __html: content }} />
+      </Container>
     </Section>
   </Layout>
 );

@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import MainNav from '$components/MainNav';
-import { Image } from 'grommet';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import classNames from 'classnames';
@@ -31,7 +30,7 @@ const Logo = styled(Link)`
   align-content: center;
 `;
 
-const LogoImage = styled(Image)`
+const LogoImage = styled.img`
   margin: 0 8px 0 0;
   width: 40px;
   height: 40px;

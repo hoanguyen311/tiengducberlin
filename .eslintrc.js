@@ -13,6 +13,10 @@ module.exports = {
       }
     }
   },
+  env: {
+    browser: true,
+    node: true
+  },
   rules: {
     "import/no-unresolved": 0,
     "react/jsx-one-expression-per-line": 0

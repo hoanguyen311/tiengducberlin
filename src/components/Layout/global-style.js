@@ -1,5 +1,4 @@
-import { createGlobalStyle, css } from 'styled-components';
-import media from '$utils/media-query';
+import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
 * {
@@ -27,15 +26,4 @@ h1, h2, h3, h4, h5, h6 {
 a:hover, a:active {
   text-decoration: none;
 }
-
-${media.large(css`
-  .hide-large {
-    display: none !important;
-  }
-`)}
-${media.medium(css`
-  .hide-medium {
-    display: none !important;
-  }
-`)}
 `;

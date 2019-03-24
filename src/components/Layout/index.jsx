@@ -1,5 +1,4 @@
 import React from 'react';
-import { Grommet } from 'grommet';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -9,7 +8,7 @@ import Header from '$components/Header';
 import Footer from '$components/Footer';
 import ContactNav from '$components/ContactNav';
 import FBPlugins from '$components/FBPlugins';
-import theme from './theme';
+import BreakpointsProvider from '$components/BreakpointsProvider';
 import GlobalStyle from './global-style';
 
 const Content = styled.main`
@@ -29,6 +28,12 @@ const Layout = ({ children }) => (
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
       />
+      <link
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossOrigin="anonymous"
+      />
     </Helmet>
     <GlobalStyle />
     <StaticQuery
@@ -43,8 +48,8 @@ const Layout = ({ children }) => (
       `}
       render={data => {
         return (
-          <Grommet theme={theme}>
-            <StickyContainer>
+          <StickyContainer>
+            <BreakpointsProvider>
               <ContactNav />
               <Sticky topOffset={40}>
                 {({ isSticky }) => (
@@ -56,8 +61,8 @@ const Layout = ({ children }) => (
               <Content>{children}</Content>
               <Footer />
               <FBPlugins />
-            </StickyContainer>
-          </Grommet>
+            </BreakpointsProvider>
+          </StickyContainer>
         );
       }}
     />

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { FacebookOption, MailOption, Phone } from 'grommet-icons';
-import media from '$utils/media-query';
+import { tablet } from '../utils/refactor/media-query';
 
 const lightTheme = {
   global: {
@@ -60,9 +60,9 @@ const PaneLeft = styled(Pane)`
   align-self: auto;
   justify-content: flex-start;
   border-bottom: 1px solid ${props => props.borderColor};
-  ${media.medium(css`
+  @media screen and ${tablet} {
     border: none;
-  `)}
+  }
   ${NavItem} {
     border-left: none;
     border-right: 1px solid ${props => props.borderColor};
@@ -74,9 +74,9 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  ${media.medium(css`
+  @media screen and ${tablet} {
     flex-direction: row;
-  `)}
+  }
 `;
 
 const NavItemText = styled.span`

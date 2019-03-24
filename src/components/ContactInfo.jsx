@@ -9,6 +9,7 @@ const Container = styled.div`
   padding: 35px 30px;
   border: 1px solid #ebebeb;
   border-radius: 6px;
+  margin-bottom: 40px;
 `;
 const Heading = styled.h3`
   color: rgba(0, 0, 0, 0.8);

@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import shortid from 'shortid';
 import PropTypes from 'prop-types';
-import { Grid, Box } from 'grommet';
+import { Container, Row, Col } from 'reactstrap';
 import styled from 'styled-components';
 import { Animated } from 'react-animated-css';
-import withViewportSize from '$utils/with-viewport-size';
+import { BreakpointsContext } from './BreakpointsProvider';
+import { tablet, isSMDown } from '$utils/refactor/media-query';
+// import withViewportSize from '$utils/with-viewport-size';
 
 const itemIcons = {
   successStories: '/img/core-img/tiledau.png',
@@ -37,17 +40,18 @@ const ItemDescription = styled(ItemInlineDescription)`
   padding: 20px 50px;
   border-radius: 6px;
 `;
-const Item = styled(Box)`
+const Item = styled.div`
   position: relative;
   z-index: 1;
-  padding-left: 50px;
-  padding-right: 50px;
   border: 1px solid #ebebeb;
   border-radius: 6px;
   text-align: center;
   justify-content: center;
   transition-duration: 0.2;
-  height: 300px;
+  margin-bottom: 20px;
+  padding: 30px 50px;
+  display: flex;
+  flex-direction: column;
   &:hover {
     border-color: #d2d2d2;
 
@@ -55,6 +59,12 @@ const Item = styled(Box)`
       opacity: 1;
       visibility: visible;
     }
+  }
+
+  @media screen and ${tablet} {
+    height: 300px;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 `;
 const ItemIcon = styled.div`
@@ -73,41 +83,41 @@ const ItemTitle = styled.h4`
   font-weight: 700;
 `;
 
-const Container = styled(Grid)`
-  background: none;
-`;
-
-const data = [
+const mock = [
   {
+    id: shortid.generate(),
     icon: 'goodTeachers',
     title: 'Đội ngũ giảng viên chất lượng',
     description:
       'Đội ngũ giảng viên người Việt và người Đức giàu kinh nghiệm, luôn hiệu quả và tận tâm mang đến những buổi học hiệu quả và thú vị.',
   },
   {
+    id: shortid.generate(),
     icon: 'limitedStudents',
     title: 'Sĩ số lớp học giới hạn',
     description:
       'Sĩ số lớp học được giới hạn tối đa 12 học viên, giáo viên có nhiều thời gian hơn để giúp đỡ và tương tác với học viên.',
   },
   {
+    id: shortid.generate(),
     icon: 'extraClass',
     title: 'Học phụ đạo miễn phí',
   },
   {
+    id: shortid.generate(),
     icon: 'successStories',
     title: 'Cam kết 100% đầu ra cho học viên',
   },
   {
+    id: shortid.generate(),
     icon: 'trialClass',
     title: 'Được học thử miễn phí',
   },
 ];
 
-function renderItem(item, i, viewport) {
+function renderItem(item, i, isSmall) {
   const { icon, title, description } = item;
   const delay = (i + 1) * 100;
-  const isSmall = viewport === 'small';
   return (
     <Animated key={i} animationIn="slideInUp" animationInDelay={delay} isVisible>
       <Item justifyContent="center">
@@ -120,44 +130,29 @@ function renderItem(item, i, viewport) {
   );
 }
 
-function Reasons({ viewportSize }) {
-  let columnsCount;
-  let columnsSize = 'small';
-
-  switch (viewportSize) {
-    case 'medium':
-      columnsCount = 3;
-      break;
-    case 'large':
-      columnsCount = 3;
-      break;
-    default:
-      columnsSize = '1fr';
-      columnsCount = 1;
-  }
-  const columns = {
-    count: columnsCount,
-    size: columnsSize,
-  };
+function Reasons({ data }) {
+  const { current } = useContext(BreakpointsContext);
+  const isSmall = isSMDown(current);
 
   return (
     <Container>
-      <Grid
-        alignContent="center"
-        justifyContent="center"
-        backgroundImage="img/bg-img/bg1.jpg"
-        columns={columns}
-        row={['1fr']}
-        gap={{ row: 'small', column: 'small' }}
-      >
-        {data.map((item, i) => renderItem(item, i, viewportSize))}
-      </Grid>
+      {isSmall}
+      <Row>
+        {data.map((item, i) => (
+          <Col md={6} lg={4} key={item.id}>
+            {renderItem(item, i, isSmall)}
+          </Col>
+        ))}
+      </Row>
     </Container>
   );
 }
 
 Reasons.propTypes = {
-  viewportSize: PropTypes.string.isRequired,
+  data: PropTypes.arrayOf(PropTypes.shape({})),
+};
+Reasons.defaultProps = {
+  data: mock,
 };
 
-export default withViewportSize(Reasons);
+export default Reasons;

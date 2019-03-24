@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Button } from 'grommet';
+import { Button } from 'reactstrap';
 import Layout from '$components/Layout';
 import SEO from '$components/SEO';
 import Hero from '$components/Hero';
@@ -16,7 +16,6 @@ const Text = styled.h2`
   color: #ffffff;
   line-height: 50px;
 `;
-const ActionButton = styled(Button)``;
 
 const HomePage = () => (
   <Layout>
@@ -27,7 +26,7 @@ const HomePage = () => (
         <br />
         trình độ A1, A2, B1
       </Text>
-      <ActionButton primary size="large" label="Liên hệ để đăng ký ngay" />
+      <Button color="primary" size="large">Liên hệ để đăng ký ngay</Button>
     </Hero>
     <Section title="Vì sao nên chọn Tiếng Đức Berlin">
       <Reasons />

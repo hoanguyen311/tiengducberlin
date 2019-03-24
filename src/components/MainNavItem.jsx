@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
-import { FormDown } from 'grommet-icons';
-import styled, { css } from 'styled-components';
-import classNames from 'classnames';
-import mediaQuery from '$utils/media-query';
 import shortid from 'shortid';
+import { FormDown } from 'grommet-icons';
+import styled from 'styled-components';
+import classNames from 'classnames';
+import { tablet, desktop } from '$utils/refactor/media-query';
 
 const ExpandIcon = styled(FormDown)`
   transition-duration: 0.2s;
@@ -13,11 +13,11 @@ const ExpandIcon = styled(FormDown)`
     transform: rotate(180deg);
   }
 
-  ${mediaQuery.medium(css`
+  @media screen and ${tablet} {
     &.expanded {
       transform: none;
     }
-  `)}
+  }
 `;
 
 const MenuItemLink = styled(Link)`
@@ -27,9 +27,9 @@ const MenuItemLink = styled(Link)`
   align-items: center;
   line-height: 38px;
   font-size: 14px;
-  text-decoration: none;
   transition: color 0.2s linear;
   &:hover {
+    text-decoration: none;
     color: #000;
   }
 `;
@@ -43,49 +43,48 @@ const MenuItem = styled.div`
 `;
 
 export const Menu = styled.nav`
-    width: 100%;
-    padding-top: ${props => (props.isSubMenu ? 0 : '70px')};
-    background-color: ${props => (props.isSubMenu ? '#FFF' : '#f2f4f8')};
-    margin-bottom: 20px;
-    ${mediaQuery.large(css`
-      flex: 1;
-      margin-right: 20px;
-      margin-bottom: 0;
-    `)}
+  width: 100%;
+  padding-top: ${props => (props.isSubMenu ? 0 : '70px')};
+  background-color: ${props => (props.isSubMenu ? '#FFF' : '#f2f4f8')};
+  margin-bottom: 20px;
+  @media screen and ${desktop} {
+    flex: 1;
+    margin-right: 20px;
+    margin-bottom: 0;
+  }
 
-    &.menu_type_sub ${MenuItem} {
-        border-bottom-color: rgba(242, 244, 248, 0.7);
-    }
+  &.menu_type_sub ${MenuItem} {
+    border-bottom-color: rgba(242, 244, 248, 0.7);
+  }
 
-    &.menu_type_sub {
-        z-index: 4;
-        margin-bottom: 0;
-        ${mediaQuery.large(css`
-          opacity: 0;
-          display: block;
-          visibility: hidden;
-          position: absolute;
-          transition-duration: 0.3s;
-          box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-          background: #fff;
-          width: 180px;
-          top: 120%;
-          right: 0;
-        `)}
+  &.menu_type_sub {
+    z-index: 4;
+    margin-bottom: 0;
+    @media screen and ${desktop} {
+      opacity: 0;
+      display: block;
+      visibility: hidden;
+      position: absolute;
+      transition-duration: 0.3s;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+      background: #fff;
+      width: 180px;
+      top: 120%;
+      right: 0;
     }
-    ${/* sc-selector */ MenuItem}:hover &.menu_type_sub {
-        ${mediaQuery.medium(css`
-          opacity: 1;
-          visibility: visible;
-          top: 100%;
-        `)}
+  }
+  ${/* sc-selector */ MenuItem}:hover &.menu_type_sub {
+    @media screen and ${tablet} {
+      opacity: 1;
+      visibility: visible;
+      top: 100%;
     }
-
-    ${mediaQuery.medium(css`
-      display: flex;
-      background: none;
-      padding: 0;
-    `)}
+  }
+  @media screen and ${tablet} {
+    display: flex;
+    background: none;
+    padding: 0;
+  }
 `;
 
 function MainNavItem({ to, label, children }) {
