@@ -3,6 +3,8 @@ import React, { Component, createElement } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Input, FormGroup, Form, Col, Button, FormFeedback } from 'reactstrap';
+import { isMDUp } from '$utils/refactor/media-query';
+import { BreakpointsContext } from './BreakpointsProvider';
 
 const emailReg = /^(?:[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+\.)*[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+@(?:(?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!\.)){0,61}[a-zA-Z0-9]?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!$)){0,61}[a-zA-Z0-9]?)|(?:\[(?:(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\.){3}(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\]))$/;
 const Container = styled.div`
@@ -26,6 +28,8 @@ const InputWrap = styled.div`
 `;
 
 class ContactForm extends Component {
+  static contextType = BreakpointsContext;
+
   constructor(props) {
     super(props);
 
@@ -141,23 +145,38 @@ class ContactForm extends Component {
 
   render() {
     const { className } = this.props;
+    const { current } = this.context;
+    const isTabletUp = isMDUp(current);
 
     return (
       <Container className={className}>
-        <Heading>Liên lạc</Heading>
+        <Heading>Liên lạc {isTabletUp}</Heading>
         <Form onSubmit={this.handleSend}>
-          <FormGroup row>
-            <Col>{this.renderInput('text', 'name', 'Họ và tên *')}</Col>
-            <Col>{this.renderInput('text', 'email', 'Email *')}</Col>
-          </FormGroup>
+          {isTabletUp ? (
+            <FormGroup row>
+              <Col>{this.renderInput('text', 'name', 'Họ và tên *')}</Col>
+              <Col>{this.renderInput('text', 'email', 'Email *')}</Col>
+            </FormGroup>
+          ) : (
+            <>
+              <FormGroup row>
+                <Col xs={12} md={6}>
+                  {this.renderInput('text', 'name', 'Họ và tên *')}
+                </Col>
+              </FormGroup>
+              <FormGroup row>
+                <Col xs={12} md={6}>
+                  {this.renderInput('text', 'email', 'Email *')}
+                </Col>
+              </FormGroup>
+            </>
+          )}
           <FormGroup row>
             <Col>{this.renderInput('textarea', 'message', 'Nội dung tin nhắn *')}</Col>
           </FormGroup>
           <FormGroup row>
             <Col>
-              <Button color="primary">
-                Gửi tin nhắn
-              </Button>
+              <Button color="primary">Gửi tin nhắn</Button>
             </Col>
           </FormGroup>
         </Form>
