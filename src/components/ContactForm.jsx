@@ -2,8 +2,8 @@
 import React, { Component, createElement } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import classNames from 'classnames';
 import { Input, FormGroup, Form, Col, Button, FormFeedback } from 'reactstrap';
+
 const emailReg = /^(?:[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+\.)*[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+@(?:(?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!\.)){0,61}[a-zA-Z0-9]?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!$)){0,61}[a-zA-Z0-9]?)|(?:\[(?:(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\.){3}(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\]))$/;
 const Container = styled.div`
   position: relative;

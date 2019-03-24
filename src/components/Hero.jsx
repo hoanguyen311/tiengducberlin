@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { tablet } from '../utils/refactor/media-query';
+import { tablet } from '$utils/refactor/media-query';
 
 const Container = styled.div`
   width: 100%;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import shortid from 'shortid';
 import { Menu as MenuIcon, Close as CloseIcon } from 'grommet-icons';
 import styled from 'styled-components';
-import { tablet } from '../utils/refactor/media-query';
+import { tablet } from '$utils/refactor/media-query';
 import MainNavItem, { Menu } from './MainNavItem';
 
 const Container = styled.div`

@@ -5,9 +5,8 @@ import Slider from 'react-slick';
 import shortId from 'shortid';
 import { Container } from 'reactstrap';
 import { FormNext, FormPrevious } from 'grommet-icons';
+import { isSMDown, tablet, MD } from '$utils/refactor/media-query';
 import { BreakpointsContext } from './BreakpointsProvider';
-import { isSMDown, tablet } from '$utils/refactor/media-query';
-import { MD } from '../utils/refactor/media-query';
 
 // const Container = styled(Row)`
 //   background: none;

@@ -10,7 +10,7 @@ import Layout from '$components/Layout';
 import Section from '$components/Section';
 import mockContent from 'raw-loader!$root/mock/course-content.html';
 import mockInfo from 'raw-loader!$root/mock/course-info.html';
-import { tablet } from '../utils/refactor/media-query';
+import { tablet } from '$utils/refactor/media-query';
 
 const CourseIntro = styled.main`
   height: auto;
