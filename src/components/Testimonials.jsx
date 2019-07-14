@@ -145,45 +145,30 @@ function Testimonials({ items }) {
 Testimonials.defaultProps = {
   items: [
     {
-      name: 'Hoa',
-      avatar: '/img/bg-img/t2.png',
-      title: 'Học viên lớp A1',
-      content: 'Tôi già rồi nhưng vẫn thích học ở đây',
+      name: 'Thái Hoà',
+      avatar: '/img/custom/hoa.jpeg',
+      title: 'Học viên lớp Skype',
+      content: 'Mình rất bận rộn nhưng nên đã học lớp Skype, kết quả đạt được rất khả quan.',
     },
     {
-      name: 'Hoa',
-      avatar: '/img/bg-img/t1.png',
-      title: 'Học viên lớp A1',
+      name: 'Minh Thư',
+      avatar: '/img/custom/thu.jpg',
+      title: 'Học viên lớp B1',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum laoreet elit, sit amet tincidunt mauris ultrices vitae.',
+        'Lựa chọn học tại trung tâm là quyết định đúng đắn của em. Em đã lấy được bằng B1 sau 7 tháng học tại đây.',
     },
     {
-      name: 'Hoa',
-      avatar: '/img/bg-img/t3.png',
-      title: 'Học viên lớp A1',
+      name: 'Đăng Triêm',
+      avatar: '/img/custom/triem.jpg',
+      title: 'Học viên lớp B1',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum laoreet elit, sit amet tincidunt mauris ultrices vitae.',
+        'Cảm ơn quý thầy cô tại trung tâm đã nhiệt tình giúp đỡ và dạy dỗ em hoàn thành tốt khoá B1',
     },
     {
-      name: 'Hoa',
-      avatar: '/img/bg-img/t4.png',
+      name: 'Bác Đoàn',
+      avatar: '/img/custom/bac-minh.jpg',
       title: 'Học viên lớp A1',
-      content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum laoreet elit, sit amet tincidunt mauris ultrices vitae.',
-    },
-    {
-      name: 'Hoa',
-      avatar: '/img/bg-img/t2.png',
-      title: 'Học viên lớp A1',
-      content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum laoreet elit, sit amet tincidunt mauris ultrices vitae.',
-    },
-    {
-      name: 'Hoa',
-      avatar: '/img/bg-img/t2.png',
-      title: 'Học viên lớp A1',
-      content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum laoreet elit, sit amet tincidunt mauris ultrices vitae.',
+      content: 'Tôi đã học hết khoá A1 ở trung tâm và cảm thấy rất hài lòng.',
     },
   ],
 };

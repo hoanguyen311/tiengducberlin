@@ -4,7 +4,8 @@ module.exports = {
   siteMetadata: {
     title: 'Tiêng Đức Berlin',
     author: `@thaihoa311`,
-    description: '',
+    description:
+      'A website for Tieng Duc Berlin - A German Languague Center based in Danang, Vietnam',
   },
   plugins: [
     'gatsby-plugin-sass',
@@ -53,8 +54,6 @@ module.exports = {
         pathToConfigModule: 'src/utils/typography',
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.app/offline
-    // 'gatsby-plugin-offline',
+    'gatsby-plugin-offline',
   ],
 };

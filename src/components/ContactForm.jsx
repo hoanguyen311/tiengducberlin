@@ -109,13 +109,16 @@ class ContactForm extends Component {
 
   validate() {
     let flag = true;
-    ['message', 'email', 'name'].forEach(fieldName => {
+    ['message', 'name'].forEach(fieldName => {
       const value = this.getFieldValue(fieldName);
       if (!value || value === '') {
         flag = false;
         this.setError(fieldName, 'Bạn không được để trống ô này');
       } else if (fieldName === 'email' && !emailReg.test(value)) {
-        this.setError(fieldName, 'Hãy nhập email đúng định dạng');
+        this.setError(
+          fieldName,
+          'Hãy nhập email đúng định dạng, chúng tôi sẽ phản hồi qua email này.'
+        );
       }
     });
     return flag;
@@ -150,12 +153,12 @@ class ContactForm extends Component {
 
     return (
       <Container className={className}>
-        <Heading>Liên lạc {isTabletUp}</Heading>
+        <Heading>Liên hệ</Heading>
         <Form onSubmit={this.handleSend}>
           {isTabletUp ? (
             <FormGroup row>
               <Col>{this.renderInput('text', 'name', 'Họ và tên *')}</Col>
-              <Col>{this.renderInput('text', 'email', 'Email *')}</Col>
+              {/* <Col>{this.renderInput('text', 'email', 'Email *')}</Col> */}
             </FormGroup>
           ) : (
             <>

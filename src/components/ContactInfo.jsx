@@ -95,9 +95,9 @@ ContactInfo.propTypes = {
 };
 
 ContactInfo.defaultProps = {
-  number: '0707920309 - 0842898619',
+  number: '0707920303 - 0981273410',
   className: '',
-  address: '31 Hoà Bình, Phương Khuê Trung, Quận Cẩm Lệ, TP. Đà Nẵng',
+  address: '42 Bình Hoà 4, Phường Khuê Trung, Quận Cẩm Lệ, TP. Đà Nẵng',
   email: 'tiengducberlin@gmail.com',
 };
 

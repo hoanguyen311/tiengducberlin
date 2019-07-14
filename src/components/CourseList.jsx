@@ -80,20 +80,24 @@ const CourseItem = ({
   startDate,
   description,
   durationInWeek,
+  daysInWeek,
 }) => {
   return (
     <Item id={id} to={`/course/${id}`}>
       <ItemBanner src={banner} alt={title} />
       <ItemContent>
         <ItemTitle>{title}</ItemTitle>
-        <ItemMetadata>Trình độ: {level}</ItemMetadata>
-        <ItemMetadata>Khai giảng: {startDate}</ItemMetadata>
+        {level && <ItemMetadata>Trình độ: {level}</ItemMetadata>}
+        {startDate && <ItemMetadata>Khai giảng: {startDate}</ItemMetadata>}
         <ItemDescription>{description}</ItemDescription>
       </ItemContent>
-      <ItemFooter>
-        <FooterItem>Thời gian(tuần): {durationInWeek}</FooterItem>
-        <ItemPrice>{price}</ItemPrice>
-      </ItemFooter>
+      {!durationInWeek && !daysInWeek && !price ? null : (
+        <ItemFooter>
+          <FooterItem>Thời gian: {`${durationInWeek} tuần`}</FooterItem>
+          {daysInWeek && <FooterItem>{daysInWeek} buổi/tuần</FooterItem>}
+          {price && <ItemPrice>{price}</ItemPrice>}
+        </ItemFooter>
+      )}
     </Item>
   );
 };
@@ -114,68 +118,98 @@ const CourseList = ({ items }) => {
 CourseList.defaultProps = {
   items: [
     {
-      banner: '/img/bg-img/default.jpeg',
+      banner: '/img/bg-img/e1.jpg',
       level: 'A1',
       title: 'Lớp A1',
       id: shortid.generate(),
       description:
-        'Exercitation tempor et velit ex minim aliqua occaecat ullamco. Adipisicing cupidatat id id et ad qui mollit occaecat reprehenderit ea anim cillum occaecat adipisicing.',
-      price: '15.000.000 vnđ',
-      durationInWeek: 3,
-      startDate: '10-10-2019',
+        'Trình độ bắt buộc đối với công dân nước ngoài muốn sang Đức với mục đích kết hôn, định cư, du lịch.',
+      durationInWeek: 8,
+      daysInWeek: 5,
     },
     {
-      banner: '/img/bg-img/default.jpeg',
-      level: 'A1',
+      banner: '/img/bg-img/e2.jpg',
+      level: 'A2',
       title: 'Lớp A2',
       id: shortid.generate(),
-      description: 'Exercitation tempor et velit ex minim aliqua occaecat ullamco.',
-      price: '15.000.000 vnđ',
-      durationInWeek: 3,
-      startDate: '10-10-2019',
+      description:
+        'Trình độ A2 này cần thiết và là bước nền tảng vô cùng quan trọng để Học viên có thể học lên trình độ B1. ',
+      durationInWeek: 8,
+      daysInWeek: 5,
     },
     {
       banner: '/img/bg-img/default.jpeg',
-      level: 'A1',
-      title: 'Lớp A3',
+      level: 'B1',
+      title: 'Lớp B1',
       id: shortid.generate(),
-      description: 'Exercitation tempor et velit ex minim aliqua occaecat ullamco.',
-      price: '15.000.000 vnđ',
-      durationInWeek: 3,
-      startDate: '10-10-2019',
+      description:
+        'Hiểu những gì bạn nghe thấy trong các tình huống hàng ngày như: Các câu hỏi đơn giản, thông báo công cộng, các cuộc trò chuyện ngắn.',
+      durationInWeek: 10,
+      daysInWeek: 5,
+    },
+    {
+      banner: '/img/bg-img/e3.jpg',
+      level: 'B2',
+      title: 'Lớp B2',
+      id: shortid.generate(),
+      description:
+        'Trình độ này nhằm mục đích rèn luyện các kĩ năng cho các kì thi TestDaF hay DHS, hiện tại các trường ở Đức yêu cầu phải có bằng B2 ',
+      durationInWeek: 10,
+      daysInWeek: 5,
+    },
+    {
+      banner: '/img/bg-img/e1.jpg',
+      title: 'Lớp Luyện Thi',
+      id: shortid.generate(),
+      description: `
+      Trung tâm thường xuyên tổ chức các lớp luyện thi A1, A2, B1, B2. Lớp luyện thi giúp học viên nắm rõ hơn cấu trúc đề thi và các mẹo để làm tốt bài thi. Đồng thời, giáo viên sẽ ôn lại kiến thức cũ và củng cố các kiến thức khó, dễ nhầm lẫn. Học viên ôn luyện qua các đề thi TestDaF hay DSH chính thức các năm trước.
+      `,
+      durationInWeek: 8,
+      daysInWeek: 5,
+    },
+    {
+      banner: '/img/bg-img/e2.jpg',
+      title: 'Giao tiếp - Du lịch',
+      id: shortid.generate(),
+      description: `
+      Không tập trung nhiều vào ngữ pháp, khóa học chủ yếu cung cấp các tình huống giao tiếp thực tế cần thiết như: tại sân bay, khách sạn, gọi đồ ăn trong nhà hàng, đi mua sắm hay các mẫu câu trong trường hợp khẩn cấp,…
+      `,
+      durationInWeek: 8,
+      daysInWeek: 5,
+    },
+    {
+      banner: '/img/bg-img/e3.jpg',
+      title: 'Học 1 kèm 1',
+      id: shortid.generate(),
+      description: `
+      Chương trình dành cho các bạn muốn học theo hình thức dạy kèm 1 người. Thời gian linh hoạt, phương pháp dạy và học hiệu quả, học viên và giáo viên dễ dàng tương tác, điều chỉnh lượng kiến thức theo tốc độ tiếp thu của người học.
+      `,
+      durationInWeek: 8,
+      daysInWeek: 5,
     },
     {
       banner: '/img/bg-img/default.jpeg',
-      level: 'A1',
-      title: 'Lớp A4',
+      title: 'Học qua Skype',
       id: shortid.generate(),
-      description: 'Exercitation tempor et velit ex minim aliqua occaecat ullamco.',
-      price: '15.000.000 vnđ',
-      durationInWeek: 3,
-      startDate: '10-10-2019',
-    },
-    {
-      banner: '/img/bg-img/default.jpeg',
-      level: 'A1',
-      title: 'Lớp A4',
-      id: shortid.generate(),
-      description: 'Exercitation tempor et velit ex minim aliqua occaecat ullamco.',
-      price: '15.000.000 vnđ',
-      durationInWeek: 3,
-      startDate: '10-10-2019',
+      description: `
+      Chương trình dành cho các bạn bận rộn công việc, không có thời gian để sắp xếp học tại trường. Thời gian linh hoạt, phương pháp dạy và học hiệu quả, học viên và giáo viên dễ dàng tương tác, điều chỉnh lượng kiến thức theo tốc độ tiếp thu của người học.
+      `,
+      durationInWeek: 8,
+      daysInWeek: 5,
     },
   ],
 };
 
 CourseItem.defaultProps = {
   banner: '/img/bg-img/default.jpeg',
-  level: 'A1',
+  level: null,
   title: 'Lớp A4',
   id: shortid.generate(),
   description: 'Exercitation tempor et velit ex minim aliqua occaecat ullamco.',
-  price: '15.000.000 vnđ',
   durationInWeek: 3,
-  startDate: '10-10-2019',
+  startDate: null,
+  daysInWeek: null,
+  price: null,
 };
 
 CourseItem.propTypes = {
@@ -184,6 +218,7 @@ CourseItem.propTypes = {
   level: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
+  daysInWeek: PropTypes.number,
   price: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   durationInWeek: PropTypes.number,
   startDate: PropTypes.string,

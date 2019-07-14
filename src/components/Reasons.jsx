@@ -113,6 +113,21 @@ const mock = [
     icon: 'trialClass',
     title: 'Được học thử miễn phí',
   },
+  {
+    id: shortid.generate(),
+    icon: 'successStories',
+    title: 'Tỉ lệ đậu cao',
+  },
+  {
+    id: shortid.generate(),
+    icon: 'courses',
+    title: 'Được bảo lưu khoá học',
+  },
+  {
+    id: shortid.generate(),
+    icon: 'default',
+    title: 'Hỗ trợ chi phí học lại',
+  },
 ];
 
 function renderItem(item, i, isSmall) {
