@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { Container, Row, Col } from 'reactstrap';
 import shortid from 'shortid';
 
 // const Container = styled.div``;
-const Item = styled(Link)`
+const Item = styled.div`
   position: relative;
   z-index: 1;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
