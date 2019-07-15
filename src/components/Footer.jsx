@@ -47,7 +47,7 @@ const Footer = ({ address }) => {
           <CopyWriteItem>
             This website is made with
             <span role="img" aria-label="heart">
-              ❤ ️
+              {` `}❤ ️{` `}
             </span>
             by
             {packageJson.author}
@@ -62,7 +62,7 @@ const Footer = ({ address }) => {
 };
 
 Footer.defaultProps = {
-  address: '31 Hoà Bình, Phương Khuê Trung, Quận Cẩm Lệ, TP. Đà Nẵng',
+  address: '42 Bình Hoà 4, Phường Khuê Trung, Quận Cẩm Lệ, TP. Đà Nẵng',
 };
 Footer.propTypes = {
   address: PropTypes.string,

@@ -91,32 +91,32 @@ MainNav.defaultProps = {
         label: 'Trang chủ',
         to: '/home',
       },
-      {
-        label: 'Khoá học',
-        to: '/course',
-        children: [
-          {
-            label: 'A1',
-            to: '/course',
-          },
-          {
-            label: 'A2',
-            to: '/course',
-          },
-          {
-            label: 'B1',
-            to: '/course',
-          },
-          {
-            label: 'Tiếng Đức du lịch',
-            to: '/course',
-          },
-          {
-            label: 'Tiếng Đức thiếu nhi',
-            to: '/course',
-          },
-        ],
-      },
+      // {
+      //   label: 'Khoá học',
+      //   to: '/course',
+      //   children: [
+      //     {
+      //       label: 'A1',
+      //       to: '/course',
+      //     },
+      //     {
+      //       label: 'A2',
+      //       to: '/course',
+      //     },
+      //     {
+      //       label: 'B1',
+      //       to: '/course',
+      //     },
+      //     {
+      //       label: 'Tiếng Đức du lịch',
+      //       to: '/course',
+      //     },
+      //     {
+      //       label: 'Tiếng Đức thiếu nhi',
+      //       to: '/course',
+      //     },
+      //   ],
+      // },
       {
         label: 'Liên hệ',
         to: '/contact',

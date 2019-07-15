@@ -14,13 +14,14 @@ const Container = styled.header`
   background: #fff;
   z-index: 10;
   border-top: 1px solid #ebebeb;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.15);
+  position: relative;
   &.header_stucked {
     border-top: none;
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
   }
 `;
 
@@ -32,8 +33,8 @@ const Logo = styled(Link)`
 
 const LogoImage = styled.img`
   margin: 0 8px 0 0;
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
 `;
 
 const Header = props => {

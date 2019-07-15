@@ -93,7 +93,7 @@ function ContactNav({ theme = 'light' }) {
       <PaneLeft {...themeConfig.global}>
         <NavItem {...themeConfig.global}>
           <Phone size="small" />
-          <NavItemText {...themeConfig.global}>Hotline: 0707920309 - 0842898619</NavItemText>
+          <NavItemText {...themeConfig.global}>Hotline: 0707920303 - 0981273410</NavItemText>
         </NavItem>
       </PaneLeft>
       <Pane>
