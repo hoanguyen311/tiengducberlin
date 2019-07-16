@@ -89,7 +89,7 @@ MainNav.defaultProps = {
     items: [
       {
         label: 'Trang chủ',
-        to: '/home',
+        to: '/',
       },
       // {
       //   label: 'Khoá học',

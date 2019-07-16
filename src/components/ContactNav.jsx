@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { FacebookOption, MailOption, Phone } from 'grommet-icons';
 import { tablet } from '$utils/refactor/media-query';
+import config from '../config';
 
 const lightTheme = {
   global: {
@@ -93,21 +94,18 @@ function ContactNav({ theme = 'light' }) {
       <PaneLeft {...themeConfig.global}>
         <NavItem {...themeConfig.global}>
           <Phone size="small" />
-          <NavItemText {...themeConfig.global}>Hotline: 0707920303 - 0981273410</NavItemText>
+          <NavItemText {...themeConfig.global}>
+            Hotline: {config.contacts.hotlines.join(' - ')}
+          </NavItemText>
         </NavItem>
       </PaneLeft>
       <Pane>
-        <NavItem
-          {...themeConfig.global}
-          target="_blank"
-          as="a"
-          href="https://www.facebook.com/yourchoiceistrue/"
-        >
+        <NavItem {...themeConfig.global} target="_blank" as="a" href={config.contacts.facebook}>
           <FacebookOption size="small" />
         </NavItem>
         <NavItem {...themeConfig.global} as="a" href="mailto:tiengducberlin@gmail.com">
           <MailOption size="small" />
-          <NavItemText {...themeConfig.global}>tiengducberlin@gmail.com</NavItemText>
+          <NavItemText {...themeConfig.global}>{config.contacts.email}</NavItemText>
         </NavItem>
       </Pane>
     </Container>

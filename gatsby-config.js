@@ -2,10 +2,9 @@ const alias = require('./alias');
 
 module.exports = {
   siteMetadata: {
-    title: 'Tiêng Đức Berlin',
+    title: 'Tiêng Đức Đà Nẵng - Tiếng Đức Berlin',
     author: `@thaihoa311`,
-    description:
-      'A website for Tieng Duc Berlin - A German Languague Center based in Danang, Vietnam',
+    description: 'Tiêng Đức Đà Nẵng - Tiếng Đức Berlin - Dạy tiếng Đức - Học tiếng Đức ở Đà Nẵng',
   },
   plugins: [
     'gatsby-plugin-sass',

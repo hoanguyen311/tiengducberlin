@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import packageJson from '$root/package.json';
 import { Content as SectionContent } from './Section';
 import ContactNav from './ContactNav';
+import config from '../config';
 
 const Container = styled.footer`
   background-color: #252525;
@@ -40,18 +41,10 @@ const Footer = ({ address }) => {
   return (
     <Container>
       <Content>
-        <FooterLogo>TIẾNG ĐỨC BERLIN</FooterLogo>
+        <FooterLogo>TIẾNG ĐỨC ĐÀ NẴNG (TIẾNG ĐỨC BERLIN)</FooterLogo>
         <CopyWrite>
           {address && <CopyWriteItem>{address}</CopyWriteItem>}
           <CopyWriteItem>{copyRight}</CopyWriteItem>
-          <CopyWriteItem>
-            This website is made with
-            <span role="img" aria-label="heart">
-              {` `}❤ ️{` `}
-            </span>
-            by
-            {packageJson.author}
-          </CopyWriteItem>
         </CopyWrite>
       </Content>
       <BottomContent>
@@ -62,7 +55,7 @@ const Footer = ({ address }) => {
 };
 
 Footer.defaultProps = {
-  address: '42 Bình Hoà 4, Phường Khuê Trung, Quận Cẩm Lệ, TP. Đà Nẵng',
+  address: config.address,
 };
 Footer.propTypes = {
   address: PropTypes.string,

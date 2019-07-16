@@ -44,7 +44,7 @@ const Header = props => {
   });
   return (
     <Container className={className}>
-      <Logo to="/home">
+      <Logo to="/">
         <LogoImage alt={siteTitle} src={siteLogo} />
       </Logo>
       <MainNav />
