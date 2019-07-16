@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { FacebookOption, MailOption, Location, Phone } from 'grommet-icons';
+import config from '../config';
 
 const Container = styled.div`
   position: relative;
@@ -95,10 +96,10 @@ ContactInfo.propTypes = {
 };
 
 ContactInfo.defaultProps = {
-  number: '0707920303 - 0981273410',
+  number: config.contacts.hotlines.join(' - '),
   className: '',
-  address: '42 Bình Hoà 4, Phường Khuê Trung, Quận Cẩm Lệ, TP. Đà Nẵng',
-  email: 'tiengducberlin@gmail.com',
+  address: config.address,
+  email: config.contacts.email,
 };
 
 export default ContactInfo;

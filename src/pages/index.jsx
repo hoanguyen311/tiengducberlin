@@ -8,6 +8,7 @@ import Section from '$components/Section';
 import Reasons from '$components/Reasons';
 import Testimonials from '$components/Testimonials';
 import CourseList from '$components/CourseList';
+import config from '../config';
 
 const Text = styled.h2`
   font-size: 27px;
@@ -19,9 +20,7 @@ const Text = styled.h2`
 
 const HomePage = () => {
   const showFBChat = () => {
-    if (window.FB && window.FB.CustomerChat) {
-      window.FB.CustomerChat.show();
-    }
+    window.open(config.registerForm, '_blank');
   };
 
   return (
@@ -29,15 +28,15 @@ const HomePage = () => {
       <SEO title="Home" />
       <Hero>
         <Text>
-          Đào tạo tiếng đức trình độ A1, A2, B1, B2, C1
+          Đào tạo tiếng Đức trình độ A1, A2, B1, B2, C1
           <br />
           (Theo tiêu chuẩn khung ngôn ngữ Châu Âu CEFR)
         </Text>
-        <Button onClick={showFBChat} color="primary">
-          Liên hệ để đăng ký ngay
+        <Button as="a" onClick={showFBChat} color="primary">
+          Đăng ký ngay
         </Button>
       </Hero>
-      <Section title="Vì sao nên chọn Tiếng Đức Berlin">
+      <Section title="Vì sao nên chọn Tiếng Đức Đà Nẵng">
         <Reasons />
       </Section>
       <Section title="Cảm nhận học viên" background="texture" overlay>
