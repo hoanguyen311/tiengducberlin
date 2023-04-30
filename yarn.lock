@@ -8273,14 +8273,6 @@ node-libs-browser@^2.0.0:
     util "^0.11.0"
     vm-browserify "0.0.4"
 
-node-mandrill@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/node-mandrill/-/node-mandrill-1.0.1.tgz#86580b7adbc152db3c658a864a7cec90f8d086fd"
-  integrity sha1-hlgLetvBUts8ZYqGSnzskPjQhv0=
-  dependencies:
-    request ">= 2.9.100"
-    underscore ">= 1.3.3"
-
 node-pre-gyp@^0.10.0:
   version "0.10.3"
   resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.10.3.tgz#3070040716afdc778747b61b6887bf78880b80fc"
@@ -10871,7 +10863,7 @@ replace-ext@1.0.0, replace-ext@^1.0.0:
   resolved "https://registry.yarnpkg.com/replace-ext/-/replace-ext-1.0.0.tgz#de63128373fcbf7c3ccfa4de5a480c45a67958eb"
   integrity sha1-3mMSg3P8v3w8z6TeWkgMRaZ5WOs=
 
-"request@>= 2.9.100", request@^2.65.0, request@^2.83.0, request@^2.85.0, request@^2.87.0, request@^2.88.0:
+request@^2.65.0, request@^2.83.0, request@^2.85.0, request@^2.87.0, request@^2.88.0:
   version "2.88.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.88.0.tgz#9c2fca4f7d35b592efe57c7f0a55e81052124fef"
   integrity sha512-NAqBSrijGLZdM0WZNsInLJpkJokL72XYjUpnB0iwsRgxh7dB6COrHnTBNwN0E+lHDAJzu7kLAkDeY08z2/A0hg==
@@ -12563,9 +12555,9 @@ typography@^0.16.18:
     typography-normalize "^0.16.19"
 
 ua-parser-js@^0.7.18:
-  version "0.7.19"
-  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.19.tgz#94151be4c0a7fb1d001af7022fdaca4642659e4b"
-  integrity sha512-T3PVJ6uz8i0HzPxOF9SWzWAlfN/DavlpQqepn22xgve/5QecC+XMCAtmUNnY7C9StehaV6exjUCI801lOI7QlQ==
+  version "0.7.35"
+  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.35.tgz#8bda4827be4f0b1dda91699a29499575a1f1d307"
+  integrity sha512-veRf7dawaj9xaWEu9HoTVn5Pggtc/qj+kqTOFvNiN1l0YdxwC1kvel57UCjThjGa3BHBihE8/UJAHI+uQHmd/g==
 
 unbzip2-stream@^1.0.9:
   version "1.3.3"
@@ -12579,11 +12571,6 @@ unc-path-regex@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/unc-path-regex/-/unc-path-regex-0.1.2.tgz#e73dd3d7b0d7c5ed86fbac6b0ae7d8c6a69d50fa"
   integrity sha1-5z3T17DXxe2G+6xrCufYxqadUPo=
-
-"underscore@>= 1.3.3":
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.9.1.tgz#06dce34a0e68a7babc29b365b8e74b8925203961"
-  integrity sha512-5/4etnCkd9c8gwgowi5/om/mYO5ajCaOgdzj/oW+0eQV9WxKBDZw5+ycmKmeaTXjInS/W0BzpGLo2xR2aBwZdg==
 
 unherit@^1.0.4:
   version "1.1.1"
